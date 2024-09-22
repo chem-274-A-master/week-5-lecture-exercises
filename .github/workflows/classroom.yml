@@ -26,23 +26,23 @@ jobs:
           test-name: Introspection01
           command: pytest -vk "Introspection01"
           timeout: 20
-          max-score: 
+          max-score: 1
         
       - name: Introspection02 Test
         id: introspection_02
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: Introspection01
+          test-name: Introspection02
           command: pytest -vk "Introspection02"
           timeout: 20
           max-score: 1
 
-      - name: ScopeNamespaces01 Test
-        id: scopenamespaces_01
+      - name: ScopeNamespace01 Test
+        id: scopenamespace_01
         uses: classroom-resources/autograding-command-grader@v1
         with:
           test-name: DataTypes01
-          command: pytest -vk "ScopeNamespaces01"
+          command: pytest -vk "ScopeNamespace01"
           timeout: 20
           max-score: 1
 
@@ -62,7 +62,7 @@ jobs:
         env:
           INTROSPECTION_01_RESULTS: "${{steps.introspection_01.outputs.result}}"
           INTROSPECTION_02_RESULTS: "${{steps.introspection_02.outputs.result}}"
-          SCOPENAMESPACES_01_RESULTS: "${{steps.scopenamespaces_01.outputs.result}}"
+          SCOPENAMESPACE_01_RESULTS: "${{steps.scopenamespace_01.outputs.result}}"
           SCRIPTING_01_RESULTS: "${{steps.scripting_01.outputs.result}}"
         with:
-          runners: introspection_01,introspection_02,scopenamespaces_01,scripting_01
+          runners: introspection_01,introspection_02,scopenamespace_01,scripting_01
