@@ -1,0 +1,66 @@
+name: Autograding Tests
+'on':
+  - push
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Install dependencies
+        run: |
+          pip install pytest
+          pip install numpy
+
+      - name: Introspection01 Test
+        id: introspection_01
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Introspection01
+          command: pytest -vk "Introspection01"
+          timeout: 20
+          max-score: 
+        
+      - name: Introspection02 Test
+        id: introspection_02
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Introspection01
+          command: pytest -vk "Introspection02"
+          timeout: 20
+          max-score: 1
+
+      - name: ScopeNamespaces01 Test
+        id: scopenamespaces_01
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: DataTypes01
+          command: pytest -vk "ScopeNamespaces01"
+          timeout: 20
+          max-score: 1
+
+      - name: Scripting01 Test
+        id: scripting_01
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Scripting01
+          command:
+          timeout: 20
+          max-score: 1
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          INTROSPECTION_01_RESULTS: "${{steps.introspection_01.outputs.result}}"
+          INTROSPECTION_02_RESULTS: "${{steps.introspection_02.outputs.result}}"
+          SCOPENAMESPACES_01_RESULTS: "${{steps.scopenamespaces_01.outputs.result}}"
+          SCRIPTING_01_RESULTS: "${{steps.scripting_01.outputs.result}}"
+        with:
+          runners: introspection_01,introspection_02,scopenamespaces_01,scripting_01
