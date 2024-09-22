@@ -12,15 +12,17 @@ Fill in the function `find_variable_name` to complete this task.
 
 def find_variable_name(variable_value):
     
-
-
-    return variable_name
+    # Your code here
+    pass
 
 if __name__ == "__main__":
-    # Example global variable for testing
-    my_variable = "my_secret"
-    
-    # Call the function to find the variable name and print the result
-    # this will print "my_variable" for this example.
-    variable_name = find_variable_name("my_secret")
-    print(variable_name)
+
+    ## Do not modify the code below - used for testing
+    import random
+    import string
+
+    random.seed(99)
+
+    globals()[''.join(random.choice(string.ascii_letters) for i in range(10))] = "my_secret"
+    print(find_variable_name("my_secret"))
+
