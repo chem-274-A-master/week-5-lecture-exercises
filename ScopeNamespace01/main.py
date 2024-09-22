@@ -10,14 +10,9 @@ Fill in the function `find_variable_name` to complete this task.
 """
 
 def find_variable_name():
-    """
-    Finds the name of the variable in the global namespace that has the value "my_secret".
-    Returns the variable name as a string.
-    """
-    for var_name, var_value in globals().items():
-        if var_value == "my_secret":
-            return var_name
-    return None
+    # YOUR CODE HERE
+
+    return variable_name
 
 if __name__ == "__main__":
     # Example global variable for testing
