@@ -49,9 +49,11 @@ jobs:
       - name: Scripting01 Test
         id: scripting_01
         uses: classroom-resources/autograding-command-grader@v1
+        env:
+            SECRET_FILE: "dont_cheat.txt"
         with:
           test-name: Scripting01
-          command:
+          command: bash Scripting01/test.sh
           timeout: 20
           max-score: 1
 

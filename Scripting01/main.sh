@@ -1,11 +1,17 @@
-# This replit contains an environment variable SECRET_NUMBER that contains
-# a number.
+# This script will run in an environment that contains
+# an environment variable SECRET_FILENAME
 
-# Create a script that reads the environment variable SECRET_NUMBER
-# and then displays the corresponding file.
+# Write a script that takes any number of arguments. It then
+# writes those arguments to a file with the name stored in that environment variable.
+# each argument should be on its own line
 
-# For example, if the secret number is 2
-# then you should display (cat) file2.txt
+# For example, if the SECRET_FILENAME variable is "output.txt", and you run
+# main.sh alice bob charlie
+#
+# The the file "output.txt" should contain
+# alice
+# bob
+# charlie
 
-# tip: You can put variables inside of strings. Ie, "text${VAR}text".
-# Just remember the curly braces!
+
+# tip: Review file redirection from the week 2 lecture material
