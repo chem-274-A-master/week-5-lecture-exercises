@@ -1,31 +1,37 @@
 """
-In this exercise, your task is to complete the function `count_object_methods` that:
+This exercise tests the object introspection methods you have learned so far.
+
+Your task is to complete the function `count_object_callables` that:
 
 1. Takes a Python object as an argument.
-2. Uses the `inspect.getmembers` method to retrieve all of the **methods** associated with the object.
-3. Returns the number of methods associated with the object.
+2. Uses the `inspect.getmembers` method to retrieve all of the **callable** members associated with the object.
+   - A callable is any object that can be called, including methods and built-in functions.
+3. Returns the number of callables associated with the object.
 
-The function should take the Python object as an argument and return the number of methods associated with it.
+Instead of using `inspect.ismethod` as the second argument to `inspect.getmembers`, you can use `callable` to find all callables related to the object.
 
-You can test your function by creating any Python object and passing it to the function. 
+The function should take the Python object as an argument and return the number of callables associated with it.
+
+You can test your function by creating any Python object and passing it to the function.
 For example, create a class or use a built-in object like a list or string.
 """
 
 import inspect
 
-def count_object_methods(python_object):
+def count_object_callables(python_object):
     """
-    Returns the number of methods associated with an object.
+    Returns the number of callable members associated with an object.
     """
     
-    # Use an introspection method to get all the methods associated with the object.
-    obj_methods =
+    # Use an introspection method to get all the callable members associated with the object.
+    # Replace 'inspect.ismethod' that was shown in the Lecture Exercise video with 'callable'
+    obj_callables = 
+    
+    # Get the number of callable members
+    num_callables = 
 
-    # Get the number of methods
-    num_methods =
-
-    # Return the number of methods
-    return num_methods
+    # Return the number of callables
+    return num_callables
 
 if __name__ == "__main__":
 
@@ -33,4 +39,4 @@ if __name__ == "__main__":
     obj = []
 
     # Call the function with the object and print the result.
-    print(count_object_methods(obj))
+    print(count_object_callables(obj))
