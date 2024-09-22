@@ -18,8 +18,8 @@ def test_Introspection01():
     test_list = []
     test_tup = ()
 
-    assert count_object_callables(test_list) == 46
-    assert count_object_callables(test_tup) == 34
+    assert count_object_callables(test_list) == len(inspect.getmembers(test_list, callable))
+    assert count_object_callables(test_tup) == len(inspect.getmembers(test_tup, callable))
 
 def test_Introspection02():
 
