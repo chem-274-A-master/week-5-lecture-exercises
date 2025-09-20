@@ -1,11 +1,11 @@
 # This script will run in an environment that contains
-# an environment variable SECRET_FILENAME
+# an environment variable SECRET_FILE
 
 # Write a script that takes any number of arguments. It then
 # writes those arguments to a file with the name stored in that environment variable.
 # each argument should be on its own line
 
-# For example, if the SECRET_FILENAME variable is "output.txt", and you run
+# For example, if the SECRET_FILE variable is "output.txt", and you run
 # main.sh alice bob charlie
 #
 # The the file "output.txt" should contain
